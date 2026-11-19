@@ -1,5 +1,5 @@
 --[[
-  multicheck.lua - GTNH multiblock checklist (Stone through IV) for OpenComputers
+  multicheck.lua - GTNH multiblock checklist (Stone through UXV) for OpenComputers
   Based on the GTNH wiki (2.9). Progress is saved to disk after every change.
 
   Usage:   multicheck [savefile]      (default save file: /home/multiblocks.cfg)
@@ -10,6 +10,8 @@
     Space / Enter                        toggle the selected multiblock
     A                                    mark whole tier done (or clear it if already all done)
     H                                    hide / show completed multiblocks
+    + / -                                bigger / smaller text (changes screen resolution)
+    F                                    fit text to the screen's shape (no black borders)
     Q                                    quit
     Mouse: left-click an item to toggle it, right-click to select it,
            click a tier in the sidebar to open it, scroll wheel to scroll.
@@ -185,6 +187,119 @@ local TIERS = {
     { "Large Essentia Smeltery" },
     { "Fountain of Conjuration" },
   }},
+  { name = "LuV", title = "Ludicrous Voltage", items = {
+    -- Fusion / power
+    { "Fusion Reactor", "Mk I" },
+    { "Compact Fusion Reactor" },
+    { "Large Plasma Turbine" },
+    { "XL Turbo Gas Turbine" },
+    { "Large SC Steam Turbine" },
+    { "Extreme Heat Exchanger" },
+    { "Whakawhiti Wera XL", "heat exchanger" },
+    -- Processing
+    { "Circuit Assembly Line" },
+    { "Industrial Arc Furnace" },
+    { "Industrial Autoclave" },
+    { "Utupu-Tanuri", "vacuum furnace / dehydrator" },
+    { "Mega Chemical Reactor" },
+    { "Mega Distillation Tower" },
+    { "Mega Oil Cracker" },
+    { "Neutron Activator" },
+    { "Molecular Transformer" },
+    { "IsaMill Grinding Machine" },
+    { "Flotation Cell Regulator" },
+    { "Sparge Tower" },
+    -- Resources
+    { "Ore Drilling Plant III" },
+    { "Planetary Gas Siphon" },
+    { "Ender Quarry", "Extra Utilities" },
+    -- Water Line (grades 1-2)
+    { "Water Purification Plant", "Water Line controller" },
+    { "Clarifier Purification Unit", "grade 1" },
+    { "Ozonation Purification Unit", "grade 2" },
+  }},
+  { name = "ZPM", title = "Zero Point Module", items = {
+    { "Exothermic Hearth", "replaces Mega EBF" },
+    { "Endothermic Fridge", "replaces Mega Vacuum Freezer" },
+    { "Large Scale Auto-Assembler v1.01" },
+    { "Hot Isostatic Pressurization Unit" },
+    { "Spinmatron-2737", "centrifuge" },
+    { "Elemental Duplicator", "replicator" },
+    { "Energy Infuser" },
+    { "Active Transformer" },
+    { "Data Bank" },
+    { "Large Naquadah Reactor" },
+    { "XL Turbo Plasma Turbine" },
+    { "Ore Drilling Plant IV" },
+    { "Void Miner" },
+    -- Beam Line
+    { "Source Chamber", "Beam Line" },
+    { "Linear Accelerator", "Beam Line" },
+    { "Synchrotron", "Beam Line" },
+    { "Target Chamber", "Beam Line" },
+    -- Water Line (grades 3-4)
+    { "Flocculation Purification Unit", "grade 3" },
+    { "PH Neutralization Purification Unit", "grade 4" },
+  }},
+  { name = "UV", title = "Ultimate Voltage", items = {
+    { "Component Assembly Line" },
+    { "PCB Factory" },
+    { "Nano Forge" },
+    { "Mega Alloy Blast Smelter" },
+    { "Neutronium Compressor" },
+    { "Matter Fabrication CPU" },
+    { "Industrial Apicultural Acclimatiser and Drone Domestication Station", "mega apiary" },
+    { "Large Hadron Collider", "replaces Cyclotron" },
+    { "Research Station" },
+    { "Quantum Computer" },
+    { "Network Switch With QoS" },
+    { "Space Elevator" },
+    { "Matter Manipulator Quantum Uplink" },
+    -- Beam Line additions
+    { "Beam Crafter" },
+    { "Beam Mirror" },
+    { "Beam Splitter" },
+    { "Beam Stabilizer" },
+    -- Water Line (grades 5-6)
+    { "Extreme Temperature Fluctuation Purification Unit", "grade 5" },
+    { "High Energy Laser Purification Unit", "grade 6" },
+  }},
+  { name = "UHV", title = "Ultra High Voltage", items = {
+    { "Electric Implosion Compressor" },
+    { "Integrated Ore Factory" },
+    { "Naquadah Fuel Refinery" },
+    { "Miniature Wormhole Generator" },
+    { "Draconic Evolution Fusion Crafter" },
+  }},
+  { name = "UEV", title = "Ultra Excessive Voltage", items = {
+    { "Dimensionally Transcendent Plasma Forge" },
+    { "Quantum Force Transformer" },
+    { "Exo-Foundry" },
+    { "Nanochip Assembly Complex" },
+    { "Residual Decontaminant Degasser Purification Unit", "grade 7" },
+    { "Absolute Baryonic Perfection Purification Unit", "grade 8" },
+  }},
+  { name = "UIV", title = "Ultra Immense Voltage", items = {
+    { "Forge of the Gods" },
+    { "Transcendent Plasma Mixer" },
+    { "Pseudostable Black Hole Containment Field" },
+    { "Semi-Stable Antimatter Stabilization Sequencer" },
+    { "Shielded Lagrangian Annihilation Matrix" },
+    { "Dyson Swarm Ground Unit" },
+    { "Draconic Reactor", "Draconic Evolution" },
+    -- Bose-Einstein Condensate Line
+    { "BEC Entanglement Apparatus", "BEC Line" },
+    { "BEC Containment Field", "BEC Line" },
+    { "BEC Maxwell Gate", "BEC Line" },
+    { "BEC Teleportation Node", "BEC Line" },
+    { "BEC Observation Array", "BEC Line" },
+  }},
+  { name = "UMV", title = "Ultra Magnificent Voltage", items = {
+    { "Eye of Harmony" },
+  }},
+  { name = "UXV", title = "Ultra Extreme Voltage", items = {
+    { "Stargate", "SGCraft" },
+  }},
   { name = "Misc", title = "Other mods (no GT tier)", items = {
     { "Thaumatorium", "Thaumcraft" },
     { "Portal to Alfheim", "Botania" },
@@ -214,7 +329,9 @@ else
         status = 0x000000, warn = 0xFFFFFF }
 end
 local TIERCOL = { Stone = 0xAAAAAA, Steam = 0xCC8844, LV = 0xDDDDDD, MV = 0xFF9933,
-                  HV = 0xFFFF55, EV = 0xAA55FF, IV = 0x5599FF, Misc = 0x55FFAA }
+                  HV = 0xFFFF55, EV = 0xAA55FF, IV = 0x5599FF, LuV = 0xFF77FF,
+                  ZPM = 0x55FFFF, UV = 0x77FF77, UHV = 0xFF5555, UEV = 0xAAFF33,
+                  UIV = 0xFFAA00, UMV = 0xFF6699, UXV = 0xFFFFFF, Misc = 0x55FFAA }
 local function tierColor(t) return COLOR and (TIERCOL[t.name] or C.fg) or C.fg end
 
 local function setc(fg, bg)
@@ -225,10 +342,15 @@ end
 ---------------------------------------------------------------------------
 -- State / persistence
 ---------------------------------------------------------------------------
-local done = {}
+local done = {}      -- also holds done.__settings = { textSize = n, fit = bool }
 local status = ""
 
 local function key(t, it) return t.name .. "|" .. it.name end
+
+local function settings()
+  if type(done.__settings) ~= "table" then done.__settings = {} end
+  return done.__settings
+end
 
 local function loadState()
   local f = io.open(SAVE_FILE, "r")
@@ -265,10 +387,12 @@ end
 -- View state
 ---------------------------------------------------------------------------
 local cur, sel, scroll, hideDone = 1, 1, 0, false
-local SW = 18   -- sidebar width
+local SW = 18          -- sidebar width (shrinks to 12 on narrow resolutions)
+local MIN_W, MIN_H = 40, 12
 
 local function layout()
   local W, H = gpu.getResolution()
+  SW = (W < 60) and 12 or 18
   local listX = SW + 2
   local listW = W - SW - 1
   local top, bottom = 3, H - 2
@@ -318,7 +442,7 @@ local function drawHeader(W)
 
   setc(C.headFg, C.head)
   gpu.fill(1, 1, W, 1, " ")
-  local title = " GTNH Multiblock Checklist (to IV)"
+  local title = " GTNH Multiblock Checklist"
   local info = string.format(" %d/%d  %3d%% ", d, total, pct)
   local barW = math.min(24, W - unicode.len(title) - #info - 4)
   local right = info
@@ -335,14 +459,24 @@ local function drawHeader(W)
   gpu.fill(1, 2, W, 1, " ")
 end
 
+local sideScroll = 0   -- first tier shown in the sidebar when they don't all fit
+
 local function drawSidebar(top, bottom)
+  local rows = bottom - top + 1
+  if cur <= sideScroll then sideScroll = cur - 1 end
+  if cur > sideScroll + rows then sideScroll = cur - rows end
+  sideScroll = math.max(0, math.min(sideScroll, #TIERS - rows))
+
   setc(C.fg, C.side)
-  gpu.fill(1, top, SW, bottom - top + 1, " ")
-  for i, t in ipairs(TIERS) do
-    local y = top + i - 1
-    if y > bottom then break end
+  gpu.fill(1, top, SW, rows, " ")
+  for row = 0, rows - 1 do
+    local i = sideScroll + row + 1
+    local t = TIERS[i]
+    if not t then break end
+    local y = top + row
     local a, b = tierCount(t)
-    local line = string.format("%s%-6s %3d/%-3d", i == cur and ">" or " ", t.name, a, b)
+    local fmt = (SW < 18) and "%s%-5s%2d/%-2d" or "%s%-6s %3d/%-3d"
+    local line = string.format(fmt, i == cur and ">" or " ", t.name, a, b)
     if i == cur then
       setc(C.selFg, C.sel)
     else
@@ -352,6 +486,8 @@ local function drawSidebar(top, bottom)
   end
   setc(C.dim, C.bg)
   for y = top, bottom do gpu.set(SW + 1, y, "|") end
+  if sideScroll > 0 then gpu.set(SW + 1, top, "^") end
+  if sideScroll + rows < #TIERS then gpu.set(SW + 1, bottom, "v") end
 end
 
 local function drawList(v, listX, listW, top, bottom)
@@ -410,7 +546,10 @@ local function drawFooter(W, H)
 
   setc(C.headFg, C.head)
   gpu.fill(1, H, W, 1, " ")
-  gpu.set(1, H, fit(" Up/Dn move  Lt/Rt tier  Space toggle  A all  H hide done  Q quit", W))
+  local help = " Up/Dn move  Lt/Rt tier  Space toggle  A all  H hide done  +/- text  F fit  Q quit"
+  if W < 86 then help = " Arrows move/tier  Spc toggle  A all  H hide  +/- text  F fit  Q quit" end
+  if W < 70 then help = " Spc toggle A all H hide +/- text F fit Q quit" end
+  gpu.set(1, H, fit(help, W))
 end
 
 local function draw()
@@ -446,6 +585,89 @@ local function switchTier(delta)
 end
 
 ---------------------------------------------------------------------------
+-- Text size: OpenComputers scales text to fill the screen, so a lower
+-- resolution means bigger characters. Level 1 = smallest text (max res).
+---------------------------------------------------------------------------
+local SCALES = { 1, 0.8, 2/3, 0.5, 0.4, 1/3, 0.25, 0.2 }
+
+-- width/height (in characters) that matches the physical screen's shape;
+-- characters are about twice as tall as they are wide
+local function screenRatio()
+  local addr = gpu.getScreen and gpu.getScreen()
+  if not addr then return nil end
+  local ok, scr = pcall(component.proxy, addr)
+  if not ok or not scr or not scr.getAspectRatio then return nil end
+  local aw, ah = scr.getAspectRatio()
+  if not aw or not ah or ah == 0 then return nil end
+  return (aw * 2) / ah
+end
+
+local function sizeLevels()
+  local mw, mh = gpu.maxResolution()
+  local ratio = settings().fit and screenRatio() or nil
+  local levels, seen = {}, {}
+  for _, s in ipairs(SCALES) do
+    local w, h = mw * s, mh * s
+    if ratio then
+      if w / h > ratio then w = h * ratio else h = w / ratio end
+    end
+    w = math.min(mw, math.max(MIN_W, math.floor(w)))
+    h = math.min(mh, math.max(MIN_H, math.floor(h)))
+    local id = w .. "x" .. h
+    if not seen[id] then
+      seen[id] = true
+      levels[#levels + 1] = { w, h }
+    end
+  end
+  return levels
+end
+
+-- the level closest to the current resolution
+local function currentLevel(levels)
+  local W = gpu.getResolution()
+  local best, bestDiff = 1, math.huge
+  for i, l in ipairs(levels) do
+    local d = math.abs(l[1] - W)
+    if d < bestDiff then best, bestDiff = i, d end
+  end
+  return best
+end
+
+local function applyTextSize(level)
+  local levels = sizeLevels()
+  level = math.max(1, math.min(#levels, level))
+  local w, h = levels[level][1], levels[level][2]
+  local cw, ch = gpu.getResolution()
+  if cw ~= w or ch ~= h then gpu.setResolution(w, h) end
+  settings().textSize = level
+  status = string.format("Text size %d/%d (%dx%d)%s", level, #levels, w, h,
+                         settings().fit and " fit" or "")
+end
+
+local function changeTextSize(delta)
+  local levels = sizeLevels()
+  local s = settings()
+  local level = s.textSize or currentLevel(levels)
+  local target = math.max(1, math.min(#levels, level + delta))
+  applyTextSize(target)
+  if target == level then
+    status = status .. (delta > 0 and "  (largest)" or "  (smallest)")
+  end
+  saveState()
+end
+
+local function toggleFit()
+  local s = settings()
+  if not s.fit and not screenRatio() then
+    status = "Can't read screen shape"
+    return
+  end
+  s.fit = not s.fit
+  applyTextSize(s.textSize or 1)
+  saveState()
+end
+
+---------------------------------------------------------------------------
 -- Input
 ---------------------------------------------------------------------------
 local running = true
@@ -470,6 +692,9 @@ local function onKey(char, code)
     if v[sel] then toggle(v[sel]) end
   elseif c == "a" then toggleTier()
   elseif c == "h" then hideDone = not hideDone; sel, scroll = 1, 0
+  elseif c == "+" or c == "=" or code == K.add then changeTextSize(1)
+  elseif c == "-" or c == "_" or code == K.subtract then changeTextSize(-1)
+  elseif c == "f" then toggleFit()
   elseif c == "q" then running = false
   else return false end
   return true
@@ -479,7 +704,7 @@ local function onTouch(x, y, button)
   local _, _, listX, _, top, bottom = layout()
   if y < top or y > bottom then return false end
   if x <= SW then
-    local i = y - top + 1
+    local i = sideScroll + (y - top) + 1
     if TIERS[i] then cur, sel, scroll = i, 1, 0; status = "" return true end
     return false
   elseif x >= listX then
@@ -508,14 +733,23 @@ end
 ---------------------------------------------------------------------------
 -- Main
 ---------------------------------------------------------------------------
-local W0, H0 = gpu.getResolution()
-if W0 < 50 or H0 < 12 then
-  io.stderr:write("multicheck: screen too small (need at least 50x12, tier 2 screen or better).\n")
+local MW, MH = gpu.maxResolution()
+if MW < MIN_W or MH < MIN_H then
+  io.stderr:write(string.format("multicheck: screen too small (need at least %dx%d).\n", MIN_W, MIN_H))
   return
 end
 
 loadState()
 local oldFg, oldBg = gpu.getForeground(), gpu.getBackground()
+local oldW, oldH = gpu.getResolution()
+
+-- restore the saved text size, or make sure the current resolution is usable
+if settings().textSize then
+  applyTextSize(settings().textSize)
+elseif oldW < MIN_W or oldH < MIN_H then
+  applyTextSize(1)
+end
+status = ""
 
 local ok, err = pcall(function()
   local redraw = true
@@ -539,6 +773,7 @@ end)
 
 gpu.setForeground(oldFg)
 gpu.setBackground(oldBg)
+pcall(gpu.setResolution, oldW, oldH)   -- give the shell its normal text size back
 term.clear()
 if not ok and not tostring(err):find("interrupted") then
   io.stderr:write("multicheck crashed: " .. tostring(err) .. "\n")
